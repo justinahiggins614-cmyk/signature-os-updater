@@ -163,3 +163,12 @@ HONEST LIMITATIONS
 QUESTIONS? Read the Signature OS Updater site's Upgrade page, which
 explains all of this in plain language.
 ================================================================
+
+PATCH - YOUR ON-MACHINE AI BUDDY
+Every download includes its own AI. After installing, run:
+  python3 ai_buddy.py
+Patch talks in plain words, knows your machine's upgrade state (what was
+installed, what the Sweeper found, health-check status), answers questions
+about your PC, recommends next steps, and can re-run the sweeper or the
+health check - always asking your permission first. Same Patch as the
+website's upgrade interview, now living on your machine.

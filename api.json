@@ -10,7 +10,8 @@
  },
  "downloads": {
   "toolkit": "https://justinahiggins614-cmyk.github.io/signature-os-updater/tools/signature_os_overlay.py",
-  "readme": "https://justinahiggins614-cmyk.github.io/signature-os-updater/tools/README.txt"
+  "readme": "https://justinahiggins614-cmyk.github.io/signature-os-updater/tools/README.txt",
+  "ai_buddy": "https://justinahiggins614-cmyk.github.io/signature-os-updater/tools/ai_buddy.py"
  },
  "components": [
   "apps",
@@ -25,5 +26,6 @@
  ],
  "upgrade_packs": 600,
  "pack_goal": 1000000,
- "pack_prefix": "JAH-UPG-"
+ "pack_prefix": "JAH-UPG-",
+ "notes": "Every download also ships Patch, the on-machine AI buddy (tools/ai_buddy.py) - included unconditionally."
 }
