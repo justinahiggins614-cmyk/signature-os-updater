@@ -1,0 +1,29 @@
+{
+ "site": "The Signature OS Updater",
+ "site_number": 33,
+ "of": 33,
+ "tagline": "No PC left outdated. Save money, save the planet.",
+ "pages": {
+  "main": "https://justinahiggins614-cmyk.github.io/signature-os-updater/",
+  "upgrade": "https://justinahiggins614-cmyk.github.io/signature-os-updater/upgrade.html",
+  "archive": "https://justinahiggins614-cmyk.github.io/signature-os-updater/archive.html"
+ },
+ "downloads": {
+  "toolkit": "https://justinahiggins614-cmyk.github.io/signature-os-updater/tools/signature_os_overlay.py",
+  "readme": "https://justinahiggins614-cmyk.github.io/signature-os-updater/tools/README.txt"
+ },
+ "components": [
+  "apps",
+  "tools",
+  "lenses",
+  "pc_models",
+  "software",
+  "ai_sweeper",
+  "sweep",
+  "ai_offline",
+  "ai_online"
+ ],
+ "upgrade_packs": 600,
+ "pack_goal": 1000000,
+ "pack_prefix": "JAH-UPG-"
+}
