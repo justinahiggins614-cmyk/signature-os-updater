@@ -9,7 +9,13 @@ BASE = "https://justinahiggins614-cmyk.github.io"
 REPO = BASE + "/signature-os-updater/"
 
 # 31-site canonical nav, extracted from signature-earth/globe.html, + site 32.
-NAV31 = open("/tmp/nav31.html").read()
+import os
+_NAV_PATHS = ["/tmp/nav31.html",
+              os.path.expanduser("~/workspace/hidden_files/jahnet_nav.html")]
+_NAV_SRC = next((p for p in _NAV_PATHS if os.path.exists(p)), None)
+if _NAV_SRC is None:
+    raise SystemExit("nav31.html not found in %r — cannot stamp nav" % (_NAV_PATHS,))
+NAV31 = open(_NAV_SRC).read()
 NAV33 = NAV31 + '<a href="' + BASE + '/signature-antivirus/">32 The Signature Antivirus</a>' \
     + '<br><span class="here">33 The Signature OS Updater \u2014 YOU ARE HERE</span>'
 
