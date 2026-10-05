@@ -721,7 +721,13 @@ def load_sweeper_module(root):
             spec = importlib.util.spec_from_file_location(
                 "signature_ai_sweeper", path)
             module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
+            # Never write __pycache__ residue next to the module file.
+            old_dwb = sys.dont_write_bytecode
+            sys.dont_write_bytecode = True
+            try:
+                spec.loader.exec_module(module)
+            finally:
+                sys.dont_write_bytecode = old_dwb
             return module
     return None
 
@@ -790,7 +796,11 @@ def cmd_health_check(target, out=print):
         bad = []
         for rel in present:
             try:
-                py_compile.compile(os.path.join(root, rel), doraise=True)
+                # In-memory compile only: never writes __pycache__ residue
+                # into the user's install.
+                with open(os.path.join(root, rel), "r",
+                          encoding="utf-8") as fh:
+                    compile(fh.read(), rel, "exec")
             except Exception as exc:
                 bad.append("{0} ({1})".format(rel, exc))
         if bad:
@@ -1117,7 +1127,8 @@ def build_parser():
         prog="signature_os_overlay.py",
         description="Signature OS Overlay toolkit - a NON-DESTRUCTIVE "
                     "overlay for your PC. Everything lives in one "
-                    "SignatureOS folder; nothing outside it is ever touched.")
+                    "SignatureOS folder; nothing outside it is ever touched. "
+                    "Free forever: no payments, no upsells, no business.")
     parser.add_argument("--detect", action="store_true",
                         help="Print the machine profile as JSON.")
     parser.add_argument("--code", action="store_true",

@@ -225,7 +225,9 @@ INDEX_BODY = """
 <div class="card" style="border:2px solid var(--grn)">
 <h3>\U0001F4B0 Save money. \U0001F331 Save the planet.</h3>
 <p style="font-size:1.1rem"><b>Our mission:</b> no one should have to buy a new computer just because their old one feels old.
-A new PC costs <b>$400&ndash;$700</b>. The Signature overlay costs <b>$0</b> &mdash; and it goes <b>on top</b> of the system
+A new PC costs <b>$400&ndash;$700</b>. The Signature overlay costs <b>$0</b> &mdash; <b>free forever</b>.
+No payments. No upsells. No trial traps. We're not in business and we're not selling anything &mdash;
+this exists for you, period. And it goes <b>on top</b> of the system
 you already have. Nothing removed. Nothing lost. Your files, your programs, your setup &mdash; all exactly as they are, only updated.</p>
 <p>Every old machine brought current is one less machine in a landfill. A 1990s PC, a 2000s PC, a 2010s PC &mdash;
 each one can have a full modern working life ahead of it. <b>Green by keeping, not by buying.</b></p>
@@ -251,6 +253,7 @@ graphics card through software, and cannot install anything through the web brow
 and run one command. Everything it claims to do, it really does.</p>
 <a class="btn" href="tools/signature_os_overlay.py" download>\u2B07\uFE0F Download the toolkit (Python, free)</a>
 <a class="btn ghost" href="tools/README.txt" download>Read what it does first</a>
+<p class="hint"><b>Free forever.</b> No account, no payment, no catch &mdash; and if you ever want it gone, deleting one folder removes every trace.</p>
 </div>
 
 <div class="card">
@@ -337,7 +340,8 @@ UPGRADE_BODY = """
 <li><p><b>Good form check.</b> When the install finishes, the toolkit runs its post-upgrade health check automatically &mdash; key tools launch, disk healthy, startup clean. The upgrade isn't done until your PC is verified in good form.</p></li>
 <li><p><b>Meet Patch, your on-machine AI buddy.</b> Every download includes its own AI &mdash; after installing, run <span class="mono">python3 ai_buddy.py</span> and talk to it. Patch knows your machine's upgrade state, answers questions about your PC in plain words, and runs the sweeper or health check for you (always with your say-so first).</p></li>
 </ol>
-<p class="hint">Nothing outside the <b>SignatureOS</b> folder is ever touched. Delete that folder and the upgrade is fully undone.</p>
+<p class="hint">Nothing outside the <b>SignatureOS</b> folder is ever touched. Delete that folder and the upgrade is fully undone &mdash; zero residue, verified.</p>
+<p class="hint"><b>Free forever.</b> No payments, no upsells, no business &mdash; this is for you.</p>
 <p><button class="btn ghost" id="fullSweep" type="button">Or: apply the full standard sweep instead</button></p>
 </div>
 </section>

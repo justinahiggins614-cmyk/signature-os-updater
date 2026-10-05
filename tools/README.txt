@@ -172,3 +172,12 @@ installed, what the Sweeper found, health-check status), answers questions
 about your PC, recommends next steps, and can re-run the sweeper or the
 health check - always asking your permission first. Same Patch as the
 website's upgrade interview, now living on your machine.
+
+FREE FOREVER - AND CLEANLY REMOVABLE
+This toolkit is free forever: no payments, no upsells, no trial traps, no
+business. It exists for you, period. And if you ever want it gone, the
+removal is total: run
+  python3 signature_os_overlay.py --remove
+or simply delete the SignatureOS folder. Every file the installer created
+is recorded in RESTORE.json, everything lives inside that one folder, and
+after removal zero residue is left - your system is exactly as it was.
