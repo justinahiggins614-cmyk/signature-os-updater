@@ -75,92 +75,48 @@ label.fl{display:block;margin:8px 0 4px;color:var(--grn2);font-weight:700}
 <h1>🔄 The Signature OS Updater</h1>
 <p class="hint">No PC left outdated. No new PC to buy.</p>
 </header>
-<nav class="tabs" aria-label="Site sections"><a href="index.html">🏠 Main</a><a href="upgrade.html" class="active">⬆️ Upgrade</a><a href="archive.html">🗂️ 1 Million Archive</a></nav>
-
-<div class="stepbar" id="stepbar">
-<div class="step on" data-s="1">1 🔍 Check</div>
-<div class="step" data-s="2">2 💬 Q&amp;A</div>
-<div class="step" data-s="3">3 📋 Plan</div>
-<div class="step" data-s="4">4 ✅ Apply</div>
-</div>
-
-<section class="stepsec on" id="sec1">
-<div class="card">
-<h3>Step 1 &mdash; Check your machine</h3>
-<p>First, a quick look right in your browser. <span class="hint">This is a rough estimate &mdash; your browser only shares a little. The deep check below reads the real numbers.</span></p>
-<div id="browserEst"><p class="hint">Checking&hellip;</p></div>
-<label class="fl" for="eraSel">Your PC's era (correct it if we guessed wrong)</label>
-<select id="eraSel">
-<option value="1990s">1990s machine</option>
-<option value="2000s">2000s machine</option>
-<option value="2010s" selected>2010s machine</option>
-<option value="modern">Modern machine</option>
-<option value="unknown">Not sure</option>
-</select>
-</div>
-
-<div class="card">
-<h3>🔎 Deep check &mdash; the real numbers (recommended)</h3>
-<p>Download the free checker, run one command on your PC, and paste the code it gives you back here. Then this page knows your <b>real</b> system, processor, memory and disk.</p>
-<ol>
-<li><a class="btn" href="tools/signature_os_overlay.py" download>⬇️ Download the checker</a></li>
-<li><p>Run it: <span class="mono">python3 signature_os_overlay.py --code</span></p></li>
-<li><label class="fl" for="codeBox">Paste your machine code here</label>
-<textarea id="codeBox" rows="3" placeholder="Paste the single-line code here&hellip;"></textarea>
-<button class="btn" id="readCode" type="button">Read my machine</button></li>
-</ol>
-<div id="machineCard"></div>
-</div>
-
-<div class="card">
-<h3>💰 What you save</h3>
-<p class="hint">Honest math: what a basic new PC costs vs. the overlay at $0.</p>
-<div id="saver"></div>
-<p class="hint">Estimates: typical basic new desktop/laptop prices; your mileage varies. The overlay can't fix dead hardware &mdash; if a part has failed, no software saves that.</p>
-</div>
-
-<div class="card"><button class="btn big" id="toStep2" type="button">My machine is checked &mdash; continue →</button></div>
-</section>
-
-<section class="stepsec" id="sec2">
-<div class="card">
-<h3>Step 2 &mdash; Tell Patch what you need</h3>
-<p>Patch is the upgrade AI. Answer a few questions &mdash; in your own words is fine &mdash; and your plan gets built around <b>your</b> job and <b>your</b> PC's problems.</p>
-<div class="chatlog" id="chatlog" aria-live="polite"></div>
-<div class="chips" id="chips"></div>
-<div class="chatrow"><input id="chatIn" type="text" placeholder="Type your answer&hellip;" aria-label="Your answer"><button class="btn" id="chatSend" type="button">Send</button></div>
-</div>
-</section>
-
-<section class="stepsec" id="sec3">
-<div class="card">
-<h3>Step 3 &mdash; Your customized plan</h3>
-<p id="planIntro"></p>
-<div id="planList"></div>
-<p><button class="btn ghost" id="selectAll" type="button">Select all compatible</button>
-<button class="btn big" id="toStep4" type="button">This is my plan &mdash; continue →</button></p>
-</div>
-</section>
-
-<section class="stepsec" id="sec4">
-<div class="card">
-<h3>Step 4 &mdash; Apply your upgrade</h3>
-<div id="applySummary"></div>
-<ol>
-<li><p><b>Download the toolkit</b> (free, one file):<br><a class="btn" href="tools/signature_os_overlay.py" download>⬇️ Download signature_os_overlay.py</a></p></li>
-<li><p><b>Download your personal upgrade profile</b> (remembers your plan):<br><button class="btn ghost" id="dlProfile" type="button">⬇️ Download my upgrade profile</button></p></li>
-<li><p><b>Run it</b> &mdash; put both files in one folder and run:<br><span class="mono" id="runCmd">python3 signature_os_overlay.py --install --components ...</span></p></li>
-<li><p><b>Good form check.</b> When the install finishes, the toolkit runs its post-upgrade health check automatically &mdash; key tools launch, disk healthy, startup clean. The upgrade isn't done until your PC is verified in good form.</p></li>
-<li><p><b>Meet Patch, your on-machine AI buddy.</b> Every download includes its own AI &mdash; after installing, run <span class="mono">python3 ai_buddy.py</span> and talk to it. Patch knows your machine's upgrade state, answers questions about your PC in plain words, and runs the sweeper or health check for you (always with your say-so first).</p></li>
-</ol>
-<p class="hint">Nothing outside the <b>SignatureOS</b> folder is ever touched. Delete that folder and the upgrade is fully undone &mdash; zero residue, verified.</p>
-<p class="hint"><b>Free forever.</b> No payments, no upsells, no business &mdash; this is for you.</p>
-<p><button class="btn ghost" id="fullSweep" type="button">Or: apply the full standard sweep instead</button></p>
-</div>
-</section>
-
-
-<div class="jahnet"><span class="jahnet-t">THE JAH NETWORK</span><nav class="jahnet" aria-label="The JAH Network"><span class="jahnet-label">THE JAH NETWORK</span><span class="jahnet-links"><a href="https://justinahiggins614-cmyk.github.io/signature-math/">1 Signature Math</a><a href="https://justinahiggins614-cmyk.github.io/jah-calculator/">2 Signature Universal Paradox Immune Calculator</a><a href="https://justinahiggins614-cmyk.github.io/jah-dictionary/">3 The Signature Dictionary</a><a href="https://justinahiggins614-cmyk.github.io/jah-wiki/">4 JAH Wiki</a><a href="https://justinahiggins614-cmyk.github.io/jah-n-wiki-leaks/">5 JAH-N Wiki Leaks</a><a href="https://justinahiggins614-cmyk.github.io/signature-llama/">6 Signature Llama: The Fully Cyber Utilizable AI</a><a href="https://justinahiggins614-cmyk.github.io/jah-ai-models/">7 The Signature AI Phone Book</a><a href="https://justinahiggins614-cmyk.github.io/cyber-patent-catalog/">8 Globally Rejustered Patent Catalog</a><a href="https://justinahiggins614-cmyk.github.io/jah-computer-systems/">10 The Signature PC System Depository</a><a href="https://justinahiggins614-cmyk.github.io/signature-books/">11 The Signature Book Depository</a><a href="https://justinahiggins614-cmyk.github.io/signature-comics/">12 The Signature Comic Store</a><a href="https://justinahiggins614-cmyk.github.io/signature-newspapers/">13 The Signature Global Newspaper Archive</a><a href="https://justinahiggins614-cmyk.github.io/signature-backend/">14 The Signature AI Mad Scientist Creation Lab</a><a href="https://justinahiggins614-cmyk.github.io/signature-boundless-generators/">15 The Signature Boundless Generator Archive</a><a href="https://justinahiggins614-cmyk.github.io/signature-ai-mixlab/">16 The Signature AI Mix Lab</a><a href="https://justinahiggins614-cmyk.github.io/signature-ai-olypics/">17 AI Olympics</a><a href="https://justinahiggins614-cmyk.github.io/signature-chip-maker/">18 The Signature Computer Chip Maker and Archive</a><a href="https://justinahiggins614-cmyk.github.io/signature-app-archive/">19 The Signature App Archive</a><a href="https://justinahiggins614-cmyk.github.io/signature-ai-robot-matcher/">20 The Signature AI Robot Matcher</a><a href="https://justinahiggins614-cmyk.github.io/signature-experiment-solver/">21 The Signature Experiment Solver</a><a href="https://justinahiggins614-cmyk.github.io/signature-ai-image-video-maker/">22 Signature AI Pixel</a><a href="https://justinahiggins614-cmyk.github.io/signature-ai-song-maker/">23 Signature Music Studio</a><a href="https://justinahiggins614-cmyk.github.io/signature-fixit/">24 The Signature Mr Fix-It</a><a href="https://justinahiggins614-cmyk.github.io/signature-university/">25 The Signature University</a><a href="https://justinahiggins614-cmyk.github.io/signature-cyber-mega-mall/">26 The Signature Cyber Mega-Mall</a><a href="https://justinahiggins614-cmyk.github.io/signature-3d-print/">27 The Signature 3D Print Mega Mall</a></span><span class="jahnet-here">9 Signature Spec Catalog Pending Patents — YOU ARE HERE</span></nav><a href="https://justinahiggins614-cmyk.github.io/signature-antivirus/">32 The Signature Antivirus</a><br><span class="here">33 The Signature OS Updater — YOU ARE HERE</span></div>
+<nav class="tabs" aria-label="Site sections"><a href="https://justinahiggins614-cmyk.github.io/signature-math/">1 Signature Math</a>
+<a href="https://justinahiggins614-cmyk.github.io/jah-calculator/">2 Signature Universal Paradox Immune Calculator</a>
+<a href="https://justinahiggins614-cmyk.github.io/jah-dictionary/">3 The Signature Dictionary</a>
+<a href="https://justinahiggins614-cmyk.github.io/jah-wiki/">4 JAH Wiki</a>
+<a href="https://justinahiggins614-cmyk.github.io/jah-n-wiki-leaks/">5 JAH-N Wiki Leaks</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-llama/">6 Signature Llama: The Fully Cyber Utilizable AI</a>
+<a href="https://justinahiggins614-cmyk.github.io/jah-ai-models/">7 The Signature AI Phone Book</a>
+<a href="https://justinahiggins614-cmyk.github.io/cyber-patent-catalog/">8 Globally Rejustered Patent Catalog</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-one-archive/specs.html">9 Specs</a>
+<a href="https://justinahiggins614-cmyk.github.io/jah-computer-systems/">10 The Signature PC System Depository</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-books/">11 The Signature Book Depository</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-comics/">12 The Signature Comic Store</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-newspapers/">13 The Signature Global Newspaper Archive</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-backend/">14 The Signature AI Mad Scientist Creation Lab</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-boundless-generators/">15 The Signature Boundless Generator Archive</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-ai-mixlab/">16 The Signature AI Mix Lab</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-ai-olypics/">17 AI Olympics</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-chip-maker/">18 The Signature Computer Chip Maker and Archive</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-app-archive/">19 The Signature App Archive</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-ai-robot-matcher/">20 The Signature AI Robot Matcher</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-experiment-solver/">21 The Signature Experiment Solver</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-ai-image-video-maker/">22 Signature AI Pixel</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-ai-song-maker/">23 Signature Music Studio</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-fixit/">24 The Signature Mr Fix-It</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-university/">25 The Signature University</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-earth/">26 Earth</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-flight-school/">27 Flight</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-game-store/">28 Games</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-website-creator/">29 Sites</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-antivirus/">30 Antivirus</a>
+<span class="jahnet-here">31 Signature Spec Catalog Pending Patents · YOU ARE HERE</span>
+<a href="https://justinahiggins614-cmyk.github.io/signature-space-mapping/">32 Space</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-cookbook/">33 Cookbook</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-spell-check/">34 Spell Check</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-image-grid-measure/">35 Grid Measure</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-cyber-mega-mall/">36 The Signature Cyber Mega-Mall</a>
+<a href="https://justinahiggins614-cmyk.github.io/signature-3d-print/">37 The Signature 3D Print Mega Mall</a>
+<a href="index.html">🏠 Main</a>
+<a href="upgrade.html" class="active">⬆️ Upgrade</a>
+<a href="archive.html">🗂️ 1 Million Archive</a>
+<a class="btn" href="tools/signature_os_overlay.py" download>⬇️ Download the checker</a>
+<a class="btn" href="tools/signature_os_overlay.py" download>⬇️ Download signature_os_overlay.py</a></span><span class="jahnet-here">9 Signature Spec Catalog Pending Patents — YOU ARE HERE</span></nav><a href="https://justinahiggins614-cmyk.github.io/signature-antivirus/">32 The Signature Antivirus</a><br><span class="here">33 The Signature OS Updater — YOU ARE HERE</span></div>
 <footer>The Signature OS Updater &middot; original Signature systems &middot; the overlay never modifies or removes your existing system &middot; delete the SignatureOS folder to undo</footer>
 
 </div>
