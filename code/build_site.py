@@ -13,6 +13,12 @@ NAV31 = open("/tmp/nav31.html").read()
 NAV33 = NAV31 + '<a href="' + BASE + '/signature-antivirus/">32 The Signature Antivirus</a>' \
     + '<br><span class="here">33 The Signature OS Updater \u2014 YOU ARE HERE</span>'
 
+# NAV31 arrives with its own <div class="jahnet"> wrapper + THE JAH NETWORK title span;
+# strip those so the FOOTER wrapper below renders exactly one bar (no nested dup).
+NAV31 = re.sub(r'^\s*<div class="jahnet">\s*<span class="jahnet-t">THE JAH NETWORK</span>', "", NAV31)
+NAV31 = re.sub(r'</div>\s*$', "", NAV31)
+
+
 STYLE = """
 :root{--grn:#35c26e;--grn2:#7fe6a4;--navy:#0a1428;--panel:#101d36;--line:#24406e;--txt:#eef4ff;--dim:#9db4d8}
 *{box-sizing:border-box}
