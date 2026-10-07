@@ -8,21 +8,55 @@ import re
 BASE = "https://justinahiggins614-cmyk.github.io"
 REPO = BASE + "/signature-os-updater/"
 
-# 31-site canonical nav, extracted from signature-earth/globe.html, + site 32.
-import os
-_NAV_PATHS = ["/tmp/nav31.html",
-              os.path.expanduser("~/workspace/hidden_files/jahnet_nav.html")]
-_NAV_SRC = next((p for p in _NAV_PATHS if os.path.exists(p)), None)
-if _NAV_SRC is None:
-    raise SystemExit("nav31.html not found in %r — cannot stamp nav" % (_NAV_PATHS,))
-NAV31 = open(_NAV_SRC).read()
-NAV33 = NAV31 + '<a href="' + BASE + '/signature-antivirus/">32 The Signature Antivirus</a>' \
-    + '<br><span class="here">33 The Signature OS Updater \u2014 YOU ARE HERE</span>'
-
-# NAV31 arrives with its own <div class="jahnet"> wrapper + THE JAH NETWORK title span;
-# strip those so the FOOTER wrapper below renders exactly one bar (no nested dup).
-NAV31 = re.sub(r'^\s*<div class="jahnet">\s*<span class="jahnet-t">THE JAH NETWORK</span>', "", NAV31)
-NAV31 = re.sub(r'</div>\s*$', "", NAV31)
+# Canonical 37-site JAH Network nav, generated inline (no /tmp or external-file
+# dependency — /tmp is wiped without warning on this VM, and a stale external
+# fragment once shipped a mangled nested nav with wrong numbers and two pills).
+# The current site (31) appears ONLY as the bottom YOU-ARE-HERE pill.
+_NAV_SITES = [
+ ("signature-math/","1 Signature Math"),
+ ("jah-calculator/","2 Signature Universal Paradox Immune Calculator"),
+ ("jah-dictionary/","3 The Signature Dictionary"),
+ ("jah-wiki/","4 JAH Wiki"),
+ ("jah-n-wiki-leaks/","5 JAH-N Wiki Leaks"),
+ ("signature-llama/","6 Signature Llama: The Fully Cyber Utilizable AI"),
+ ("jah-ai-models/","7 The Signature AI Phone Book"),
+ ("cyber-patent-catalog/","8 Globally Rejustered Patent Catalog"),
+ ("signature-one-archive/specs.html","9 Signature Spec Catalog Pending Patents"),
+ ("jah-computer-systems/","10 The Signature PC System Depository"),
+ ("signature-books/","11 The Signature Book Depository"),
+ ("signature-comics/","12 The Signature Comic Store"),
+ ("signature-newspapers/","13 The Signature Global Newspaper Archive"),
+ ("signature-backend/","14 The Signature AI Mix and Match Generator"),
+ ("signature-boundless-generators/","15 The Signature Boundless Generator Archive"),
+ ("signature-ai-mixlab/","16 The Signature AI Mix Lab"),
+ ("signature-ai-olypics/","17 AI Olympics"),
+ ("signature-chip-maker/","18 The Signature Computer Chip Maker and Archive"),
+ ("signature-app-archive/","19 The Signature App Archive"),
+ ("signature-ai-robot-matcher/","20 The Signature AI to Robot Matcher"),
+ ("signature-experiment-solver/","21 The Signature Experiment Solver"),
+ ("signature-ai-image-video-maker/","22 Signature AI Pixel"),
+ ("signature-ai-song-maker/","23 Signature Music Studio"),
+ ("signature-fixit/","24 The Signature Mr Fix-It"),
+ ("signature-university/","25 Signature University"),
+ ("signature-earth/","26 Signature Earth"),
+ ("signature-flight-school/","27 The Signature Flight School"),
+ ("signature-game-store/","28 The Signature Game Store"),
+ ("signature-website-creator/","29 Signature Website Creator"),
+ ("signature-antivirus/","30 The Signature Antivirus"),
+ # 31 = self, rendered only as the YOU-ARE-HERE pill below
+ ("signature-space-mapping/","32 Signature Space Mapping"),
+ ("signature-cookbook/","33 The Signature Cookbook"),
+ ("signature-spell-check/","34 The Signature Spell Check"),
+ ("signature-image-grid-measure/","35 The Signature Image Grid and Measure"),
+ ("signature-cyber-mega-mall/","36 The Signature Cyber Mega-Mall"),
+ ("signature-3d-print/","37 The Signature 3D Print Mega Mall"),
+]
+def _nav_url(repo):
+    return "%s/%s" % (BASE, repo if repo.endswith(".html") else repo.rstrip("/") + "/")
+_NAV_LINKS = "".join(
+    '<a href="%s">%s</a>' % (_nav_url(repo), label) for repo, label in _NAV_SITES)
+NAV_HTML = ('<div class="jahnet"><span class="jahnet-t">THE JAH NETWORK</span>' + _NAV_LINKS +
+            '<br><span class="here">31 The Signature OS Updater \u2014 YOU ARE HERE</span></div>')
 
 
 STYLE = """
@@ -196,8 +230,10 @@ SIGNIN_SCRIPTS = """
 </script>
 """
 
+FOOTER_FRONT = NAV_HTML + """
+<footer>The Signature OS Updater &middot; original Signature systems &middot; the overlay never modifies or removes your existing system &middot; delete the SignatureOS folder to undo</footer>
+"""
 FOOTER = """
-<div class="jahnet"><span class="jahnet-t">THE JAH NETWORK</span>""" + NAV33 + """</div>
 <footer>The Signature OS Updater &middot; original Signature systems &middot; the overlay never modifies or removes your existing system &middot; delete the SignatureOS folder to undo</footer>
 """
 
@@ -207,6 +243,9 @@ def page(title, desc, active_tab, body_html, extra_head=""):
     tab_html = "".join(
         '<a href="%s"%s>%s</a>' % (href, ' class="active"' if href == active_tab else "", label)
         for href, label in tabs)
+    # Standing rule: the JAH Network website list appears ONLY at the bottom of
+    # the front door (index.html) — never on other pages.
+    footer = FOOTER_FRONT if active_tab == "index.html" else FOOTER
     return """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,7 +259,7 @@ def page(title, desc, active_tab, body_html, extra_head=""):
 <body>
 <div class="wrap">
 <header>
-<p class="kicker">SITE 33 OF 33 \u00B7 THE JAH NETWORK</p>
+<p class="kicker">SITE 31 OF 37 \u00B7 THE JAH NETWORK</p>
 <h1>\U0001F504 The Signature OS Updater</h1>
 <p class="hint">No PC left outdated. No new PC to buy.</p>
 </header>
@@ -231,7 +270,7 @@ def page(title, desc, active_tab, body_html, extra_head=""):
 %s
 %s
 </body>
-</html>""" % (title, desc, STYLE, extra_head, tab_html, body_html, FOOTER, OVERLAY, SIGNIN_SCRIPTS)
+</html>""" % (title, desc, STYLE, extra_head, tab_html, body_html, footer, OVERLAY, SIGNIN_SCRIPTS)
 
 INDEX_BODY = """
 <div class="card" style="border:2px solid var(--grn)">

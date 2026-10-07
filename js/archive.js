@@ -63,5 +63,11 @@
     $("askIn").addEventListener("keydown", function (e) { if (e.key === "Enter") ask(); });
   }).catch(function () {
     $("bestBox").innerHTML = "<p class=\"hint\">Pack data is loading \u2014 check back in a moment.</p>";
+    /* Offline: the Ask box must still answer honestly instead of silently doing nothing. */
+    $("askSend").onclick = function () {
+      $("askOut").innerHTML = "<p class=\"hint\">The pack catalog could not be loaded (you may be offline) \u2014 " +
+        "check your connection and try again, or take the 4-step upgrade walkthrough: " +
+        "<a href=\"upgrade.html\">start here \u2192</a></p>";
+    };
   });
 })();
