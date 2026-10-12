@@ -119,6 +119,7 @@ footer{color:#7286b8;font-size:.78rem;text-align:center;margin:20px 0}
 .best{border:2px solid var(--grn);background:#0c2417}
 input[type=text],textarea,select{background:#0a1428;color:var(--txt);border:2px solid var(--line);border-radius:10px;padding:11px 13px;font-size:.95rem;width:100%}
 label.fl{display:block;margin:8px 0 4px;color:var(--grn2);font-weight:700}
+.hero-mascot{max-width:640px;width:100%;height:auto;border-radius:12px;margin:12px auto;display:block;box-shadow:0 4px 18px rgba(0,0,0,.35)}
 """
 
 OVERLAY = """
@@ -258,6 +259,7 @@ def page(title, desc, active_tab, body_html, extra_head=""):
 </head>
 <body>
 <div class="wrap">
+<img src="assets/hero-os-updater.jpg" alt="An old computer renewed with green upgrade arrows" class="hero-mascot">
 <header>
 <p class="kicker">SITE 31 OF 37 \u00B7 THE JAH NETWORK</p>
 <h1>\U0001F504 The Signature OS Updater</h1>
