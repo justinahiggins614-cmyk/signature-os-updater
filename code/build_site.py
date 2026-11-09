@@ -261,7 +261,7 @@ def page(title, desc, active_tab, body_html, extra_head=""):
 <div class="wrap">
 <img src="assets/hero-os-updater.jpg" alt="An old computer renewed with green upgrade arrows" class="hero-mascot">
 <header>
-<p class="kicker">SITE 31 OF 37 \u00B7 THE JAH NETWORK</p>
+<p class="kicker">SITE 31 OF 39 \u00B7 THE JAH NETWORK</p>
 <h1>\U0001F504 The Signature OS Updater</h1>
 <p class="hint">No PC left outdated. No new PC to buy.</p>
 </header>
